@@ -38,6 +38,8 @@ The `key.pem` file contains the private key, and the `cert.pem` file contains th
 
 ## Config and Running
 
+### Config
+
 Next, configure the `main.ts` file as follows:
 
 ```typescript
@@ -59,12 +61,14 @@ async function bootstrap() {
 bootstrap();
 ```
 
-### Explanation of Some Commands:
+#### Explanation of Some Commands:
 
 - `fs.readFileSync('./src/cert/key.pem')`: Reads the content of the `key.pem` file containing the private key.
 - `fs.readFileSync('./src/cert/cert.pem')`: Reads the content of the `cert.pem` file containing the public certificate.
 - `NestFactory.create(AppModule, { httpsOptions })`: Creates a NestJS application with HTTPS configuration.
 - `app.listen(3000)`: Listens for HTTPS connections on port 3000.
+
+### Running
 
 Finally, run the project with the command:
 
