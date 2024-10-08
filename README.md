@@ -35,3 +35,41 @@ mkcert -key-file ./src/cert/key.pem -cert-file ./src/cert/cert.pem localhost
 ```
 
 The `key.pem` file contains the private key, and the `cert.pem` file contains the public certificate. These files are used to establish a secure HTTPS connection for the `localhost` domain.
+
+## Config and Running
+
+Tiếp theo, config lại file `main.ts` như sau:
+
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
+import * as fs from 'fs';
+
+async function bootstrap() {
+  const httpsOptions = {
+    key: fs.readFileSync('./src/cert/key.pem'),
+    cert: fs.readFileSync('./src/cert/cert.pem'),
+  };
+
+  const app = await NestFactory.create(AppModule, { httpsOptions });
+
+  await app.listen(3000);
+}
+
+bootstrap();
+```
+
+### Explanation of Some Commands:
+
+- `fs.readFileSync('./src/cert/key.pem')`: Reads the content of the `key.pem` file containing the private key.
+- `fs.readFileSync('./src/cert/cert.pem')`: Reads the content of the `cert.pem` file containing the public certificate.
+- `NestFactory.create(AppModule, { httpsOptions })`: Creates a NestJS application with HTTPS configuration.
+- `app.listen(3000)`: Listens for HTTPS connections on port 3000.
+
+Finally, run the project with the command:
+
+```sh
+npm run start
+```
+
+and access the page at [https://localhost:3000](https://localhost:3000)
