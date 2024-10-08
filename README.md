@@ -38,7 +38,7 @@ The `key.pem` file contains the private key, and the `cert.pem` file contains th
 
 ## Config and Running
 
-Tiếp theo, config lại file `main.ts` như sau:
+Next, configure the `main.ts` file as follows:
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
