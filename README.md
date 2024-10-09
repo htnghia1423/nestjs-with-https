@@ -8,7 +8,7 @@ To install the necessary dependencies for this project, run the following comman
 npm install
 ```
 
-Next, open Windows PowerShell and install `mkcert` using `choco`. You can find more information about `mkcert` on its [Cert Official Github page](https://github.com/FiloSottile/mkcert).
+Next, open Windows PowerShell with Admin access and install `mkcert` using `choco`. If you don't have `choco`, you can find and download it on offical website [Chocolatey Sofware](https://chocolatey.org/).You can find more information about `mkcert` on its [Cert Official Github page](https://github.com/FiloSottile/mkcert).
 
 ```sh
 choco install mkcert
